@@ -1,0 +1,48 @@
+img.centerpiece {
+  height: 300px;
+}
+
+.reveal pre {
+  background-color: #fff3;
+  border: 3px solid #fff6;
+}
+
+.highlight {
+  color: hsla(60, 100%, 80%, 1);
+}
+.greenText {
+  color: hsla(120, 100%, 80%, 1);
+}
+
+.reveal .inline-code > *, .reveal .inline-code > pre {
+  display: inline;
+  vertical-align: middle;
+}
+.reveal .inline-code > pre  {
+  padding: 0.3em;
+  font-size: 0.7em;
+}
+
+.reveal .lang-comp-line pre {
+  font-size: 1em;
+  padding: 0.3em;
+}
+
+.reveal .lang-comp-block pre {
+  font-size: 0.7em;
+  padding: 0.3em;
+}
+
+.reveal pre {
+  font-size: 0.7em;
+}
+
+.reveal .slides section .fragment.highlight {
+  visibility: visible;
+  opacity: 1;
+  color: inherit;
+
+}
+.reveal .slides section .fragment.highlight.visible {
+  color: hsla(60, 100%, 80%, 1);
+}
