@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Presentation - HackFRee 2018</title>
+		<title>Presentation - HackFRee 2019</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -26,376 +26,144 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown>
-					<textarea data-template>
-						# Break it Down!
-
-						A brief guide on turning a problem into a working solution in code.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## I am:
-
-						<span class="greenText">Daniel Shepsis</span>
-						* Science & Engineering Class of 2015
-						* Inventor of the Pokémon AI
-						* Junior at Rutgers University
-						* Chemical Engineering Major
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## I am going to teach you:
-
-						How to take a problem and turn it into code.
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Step 1: The Problem
-						<a href="https://projecteuler.net/archives" class="fragment" target="_blank">
-							projecteuler.net
-						</a>
-					</textarea>
-				</section>
-
 				<section>
-					<h2>Project Euler:</h2>
-					<img class="centerpiece" src="img/projectEulerProblemList.png" />
-					<p>
-						A site with a lot of example math+programming problems of various difficulty.
-					</p>
+					<h2>Logos and Diagrams in Inkscape</h2>
+					<img class="centerpiece" src="https://media.inkscape.org/static/images/inkscape-logo.svg" />
+					<a href="https://dshepsis.github.io/HackFRee-2019">https://dshepsis.github.io/HackFRee-2019</a> <span style="font-size:0.5em;">Case Sensitive!</span>
 				</section>
-
 				<section>
-					<h2>Why?</h2>
-					<p>
-						These problems are universal.
-					</p>
-				</section>
-
-				<section>
-					<h2>Problem 1:<br />Multiples of 3 and 5</h2>
-					<p>
-						If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-					</p>
-					<p class="highlight">
-						Find the sum of all the multiples of 3 or 5 below 1000.
-					</p>
-				</section>
-
-				<section>
-					<h2>Breaking it into parts:</h2>
-					<p>
-						[Find the sum]<br />[of all the]<br />[multiples of 3 or 5]<br />[below 1000].
-					</p>
-				</section>
-
-				<section>
-					<h2>Pick a part:</h2>
-					<p>
-						[Find the sum]<br />
-						[of all the]<br />
-						<span class="highlight">[multiples of 3 or 5]</span><br />
-						[below 1000].
-					</p>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"multiples of" &rarr; <span class="fragment">%</span>
-					</p>
-					<p class="fragment">
-						"multiples of 3" &rarr; <span class="fragment">i % 3</span>
-					</p>
-					<div class="fragment inline-code">
-						<p>"multiples of 3 or 5" &rarr;</p>
-						<pre class="fragment">(i % 3 == 0) || (i % 5 == 0)</pre>
-					</div>
-				</section>
-
-				<section class="lang-comp-line">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre>(i % 3 == 0) || (i % 5 == 0)</pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre>(i % 3 == 0) || (i % 5 == 0)</pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre>(i % 3 <span class="highlight">===</span> 0) || (i % 5 <span class="highlight">===</span> 0)</pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre>(i % 3 == 0) <span class="highlight">or</span> (i % 5 == 0)</pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>Aside:<br />Language Fundamentals</h2>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"All of the multiples of 3 or 5" &rarr; <span class="highlight fragment">for loop</span>
-					</p>
-					<pre class="fragment"><code class="JavaScript">for (let i = 0; i < 1000; ++i)</code></pre>
-				</section>
-
-				<section class="lang-comp-line">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">for (int i = 1; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">for (int i = 1; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">for (let i = 0; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">for i in range(1, 1000):</code></pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"Find the sum" &rarr; <span class="highlight fragment">use a variable:</span>
-					</p>
-					<pre class="fragment"><code class="Python">sum = 0
-for i in range(1, 1000):
-  if ((i % 3 == 0) or (i % 5 == 0)):
-    sum += i
-print(sum)</code></pre>
-				</section>
-
-				<section class="lang-comp-block">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">int sum = 0;
-for (int i = 1; i < 1000; ++i) {
-  if ((i % 3 == 0) || (i % 5 == 0)) {
-    sum += i;
-  }
-}
-System.out.println(sum);</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">int sum = 0;
-for (int i = 1; i < 1000; ++i) {
-  if ((i % 3 == 0) || (i % 5 == 0)) {
-    sum += i;
-  }
-}
-cout << sum;</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">let sum = 0;
-for (let i = 1; i < 1000; ++i) {
-  if ((i % 3 === 0) || (i % 5 === 0)) {
-    sum += i;
-  }
-}
-console.log(sum);</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">sum = 0
-for i in range(1, 1000):
-  if ((i % 3 == 0) or (i % 5 == 0)):
-    sum += i</code></pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>What we've done:</h2>
+					<h2>I am</h2>
+					<p><span class="greenText">Daniel Shepsis</span></p>
 					<ul>
-						<li class="fragment">State the problem clearly.</li>
-						<li class="fragment">Break the problem into discrete steps</li>
-						<li class="fragment">For each step, find its equivalent in code.</li>
-				</section>
-
-				<section>
-					<h2>Going further</h2>
-					<p>Is there a better approach?</p>
-				</section>
-
-				<section>
-					<h2>A better approach</h2>
-					<p>Don't search, generate.</p>
-				</section>
-
-				<section>
-					<h2>Generating:</h2>
-					<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}</code></pre>
-				</section>
-
-				<section>
-					<h2>Generating: (Fixed)</h2>
-					<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}</code></pre>
-				</section>
-
-				<section class="lang-comp-block">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}
-System.out.println(sum2);</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}
-cout << sum2;</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">let sum2 = 0;
-for (let i = 3; i < COUNT_TO; i += 3) {
-  sum2 += i;
-}
-for (let i = 5; i < COUNT_TO; i += 5) {
-  sum2 += i;
-}
-for (let i = 15; i < COUNT_TO; i += 15) {
-  sum2 -= i;
-}
-console.log(sum2);</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">sum2 = 0
-for i in range(3, COUNT_TO, 3):
-	sum2 += i
-for i in range(5, COUNT_TO, 5):
-	sum2 += i
-for i in range(15, COUNT_TO, 15):
-	sum2 -= i
-print(sum2)</code></pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>A more complex problem:</h2>
-					<p class="fragment">The <span class="highlight">Pokémon</span> AI</p>
-				</section>
-
-				<section>
-					<h2>The Pokémon AI -<br/>Problem Statement</h2>
-					<p>Make an AI that can competitively battle against humans in Pokémon.</p>
-				</section>
-
-				<section>
-					<h2>The Pokémon AI -<br/>Breakdown</h2>
-					<p>
-						[Make an AI]<br />
-						[that can competitively battle]<br />
-						[against humans]<br />
-						<span class="fragment highlight">[in Pokémon.]</span>
-					</p>
-				</section>
-
-				<section>
-					<h2>The Pokémon AI</h2>
-					<p>
-						"in Pokémon" &rarr; How do I make a program play Pokémon?
-					</p>
-				</section>
-
-				<section>
-					<h2>The Pokémon AI</h2>
-					<p>
-						Options:
-					</p>
-					<ul>
-						<li>Make a robot to push buttons on an actual game console</li>
-						<li>Make the program give inputs to an emulator</li>
-						<li class="fragment highlight">Use the Pokémon Showdown simulator</li>
+						<li>Science & Engineering Class of 2015</li>
+						<li>Senior at Rutgers University</li>
+						<li>Chemical Engineering Major</li>
+						<li>Web Developer for Rutgers</li>
+						<li class="fragment">Likes art</li>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Pokémon Showdown!</h2>
-					<img class="centerpiece" src="img/pokemonShowdown.png" />
-					<a href="https://play.pokemonshowdown.com" target="_blank">https://play.pokemonshowdown.com</a>
+					<h2>I am going to teach you:</h2>
+					<p>Vector graphics design in Inkscape</p>
 				</section>
 
 				<section>
-					<h2>Pokémon Showdown!</h2>
-					<p>A web-app that simulates Pokémon battles between people</p>
+					<h2>Step 1: Vectors graphics</h2>
+					<img class="centerpiece" src="img/vector-vs-bitmap.png" alt="Vector (Smooth) vs Bitmap (Blocky)">
 				</section>
 
 				<section>
-					<h2>To use a web-app:</h2>
+					<h2>Step 2: Making Vector Images</h2>
 					<ul>
-						<li>Make the program send mouse and keyboard inputs to mimic a human</li>
-						<li>Use accessibility features</li>
-						<li class="fragment highlight">Do further research</li>
+						<li>Standard file format: .SVG (Scalable Vector Graphics)</li>
+						<li>Text-file with XML-based formatting.</li>
 					</ul>
 				</section>
 
-				<section>
-					<h2>Research:</h2>
-					<img class="centerpiece" src="img/googleSearch.png" />
-					<p>Just Google it</p>
+				<section class="lang-comp-block">
+					<h2>SVG Example</h2>
+
+						<img style="width: 250px" src="img/simple-example.svg" alt="An orange circle overlapped by a blue square with a black stroke"/>
+						<pre><code class=" hljs SVG" style="font-size: 0.6em; line-height: 1.5">&lt;svg width="500" height="500" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+	&lt;ellipse cx="50" cy="50" rx="40" ry="40"
+		style="fill:orange;"
+	/&gt;
+	&lt;rect x="50" y="25" height="30" width="40"
+		style="stroke:black; stroke-width: 10; fill: blue;"
+	/&gt;
+&lt;/svg&gt;</code></pre>
+				</section>
+
+				<section data-background-image="img/inkscape-interface.png" data-background-size="contain">
 				</section>
 
 				<section>
-					<h2>Further Research:</h2>
-					<img class="centerpiece" src="img/stackOverflow.png" />
-					<p>People often have had your problem before, and sometimes have solved it.</p>
+					<h2>Inkscape: Shapes</h2>
+					<img class="centerpiece" src="img/inkscape-interface-shapes.png" style="height: 550px"/>
 				</section>
 
-				<section data-markdown>
-					<textarea data-template>
-						## Return;
+				<section>
+					<h2>Inkscape: Paths</h2>
+					<img class="centerpiece" src="img/inkscape-interface-pen.png" style="height: 550px"/>
+				</section>
 
-						Questions? Comments? Concerns?
-					</textarea>
+				<section>
+					<h2>Inkscape: Fill and Stroke</h2>
+					<img class="centerpiece" src="img/inkscape-fill-stroke.png"/>
+				</section>
+
+				<section>
+					<h2>Inkscape: Boolean Operations</h2>
+					<img class="centerpiece" src="img/inkscape-boolean-ops.png"/>
+				</section>
+
+				<section>
+					<h2>Inkscape: Export PNG</h2>
+					<img class="centerpiece" src="img/inkscape-export-png.png"/>
+				</section>
+
+				<section>
+					<h2>Inkscape: Grid</h2>
+					<img class="centerpiece" src="img/inkscape-grid.png"/>
+				</section>
+
+				<section>
+					<h2>Inkscape: Snapping</h2>
+					<img class="centerpiece" src="img/inkscape-interface-snapping.png" style="height: 550px"/>
+				</section>
+
+				<section>
+					<h2>Inkscape: Document Properties</h2>
+					<img class="centerpiece" src="img/inkscape-doc-properties.png"/>
+				</section>
+
+				<section>
+					<h2>Diagrams: Examples</h2>
+				</section>
+
+				<section data-background-image="img/diagrams/overall-BFD.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/diagrams/methane-to-raw-syngas.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/diagrams/miec-diagram.png" data-background-size="contain">
+				</section>
+
+				<section>
+					<h2>Demo: Example Diagram</h2>
+					<img class="centerpiece" src="img/diagram-example.png"/>
+				</section>
+
+				<section>
+					<h2>Logos: Examples</h2>
+				</section>
+
+				<section data-background-image="img/logo/AuLogo.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/logo/DS_Redo_optimized.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/logo/AU_Redo_optimized.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/logo/logo_alpha.png" data-background-size="contain">
+				</section>
+
+				<section data-background-image="img/logo/FC_Apple_Mario.png" data-background-size="contain">
+				</section>
+
+				<section>
+					<h2>Demo: Example Logo</h2>
+					<img class="centerpiece" src="img/logo/hackfree.png"/>
+				</section>
+
+				<section>
+					<h2>Thank you for listening!</h2>
+					<img class="centerpiece" src="https://media.inkscape.org/static/images/inkscape-logo.svg" />
+					<p>Questions and Comments</p>
 				</section>
 			</div>
 		</div>
@@ -409,8 +177,6 @@ print(sum2)</code></pre>
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
