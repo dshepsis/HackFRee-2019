@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Presentation - HackFRee 2018</title>
+		<title>Presentation - HackFRee 2019</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -26,429 +26,400 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown>
-					<textarea data-template>
-						# Break it Down!
-
-						A brief guide on turning a problem into a working solution in code.
-					</textarea>
+				<section>
+					<h2>Logos and Diagrams in Inkscape</h2>
+					<img class="centerpiece" src="https://media.inkscape.org/static/images/inkscape-logo.svg" />
+					<aside class="notes">
+						Thank you all for coming to my presentation.
+					</aside>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## I am:
+				<section>
+					<h2>I am</h2>
+					<p><span class="greenText">Daniel Shepsis</span></p>
+					<ul>
+						<li>Science & Engineering Class of 2015</li>
+						<li>Senior at Rutgers University</li>
+						<li>Chemical Engineering Major</li>
+						<li>Web Developer for Rutgers</li>
+						<li class="fragment">Likes art</li>
+					</ul>
+					<aside class="notes">
+						As an introduction, I am Daniel Shepsis.
+						<br>
+						<p>I'm an alum of Manalapan High School, S&E class of 2015.</p>
 
-						<span class="greenText">Daniel Shepsis</span>
-						* Science & Engineering Class of 2015
-						* Inventor of the Pokémon AI
-						* Junior at Rutgers University
-						* Chemical Engineering Major
-					</textarea>
+						<p>
+							I'm currently studying chemical engineering at Rutgers New Brunswick,
+							and I currently work for Rutgers as a web developer in the
+							University Communications and Marketing office.
+						</p>
+						<p>* I also like art, but lets set that aside for now.</p>
+					</aside>
 				</section>
 
 				<section>
 					<h2>I am going to teach you:</h2>
-					<p>How to take a problem and turn it into code.</p>
+					<p>Vector graphics design in Inkscape</p>
 					<aside class="notes">
-						Now what I'm going to teach you is a method for solving problems,
-						whether they be homework assignments or stuff you're doing for work
-						or just stuff you're doing for fun.
-
-						To do this, we'll be translating our problem into English, breaking
-						it into small sub-goals, and turning each of those individual
-						pieces into code in a step-by-step process.
-
-						So how are we gonna start? Well...
+						<p>
+							I'm here today to give you an introduction to vector graphic design.
+							The goal isn't to teach you everything you need to know.
+						</p>
+						<p>
+							My philosophy toward technical learning is that you shouln't fully learn
+							a skill you don't already need.
+						</p>
+						<p>
+							Instead, learn at least enough so you
+							know what that skill is good for, so if you run into a problem it
+							could solve, you can remember it, and relearn it from there.
+						</p>
 					</aside>
 				</section>
 
 				<section>
-					<h2>Step 1: The Problem</h2>
-					<a href="https://projecteuler.net/archives" class="fragment" target="_blank">
-						projecteuler.net
-					</a>
+					<h2>Step 1: Vectors graphics</h2>
+					<img class="centerpiece" src="img/vector-vs-bitmap.png" alt="Vector (Smooth) vs Bitmap (Blocky)">
 					<aside class="notes">
-						You have to start with some kind of problem, but in the name of not
-						spoiling future programming classes for you, or picking something
-						overly complicated, I'm going to use an example problem from this
-						site: Project Euler
+						<p>
+							To be very brief, computers normally display things as a grid of
+							squares called "pixels", each of which is assigned a color. This is
+							called a "bitmap" image, and it's pretty great for a lot of things,
+							like pictures, paintings, or video. One big problem, though, is that
+							you can't use enlarge or zoom into a bitmap image without losing
+							quality, because the bitmap image doesn't contain information about
+							what's between the pixels. This causes the blocky, pixelated look
+							on the right.
+						</p>
+						<p>
+							Unlike a bitmap, vector images are defined by math and geometry.
+							Every shape is defined using a group of lines and curves which
+							the computer then uses to calculate what colors are where in the
+							image, sort of like a graphic calculator. And just like a graphing
+							calculator, you can zoom in infinitely without losing any detail.
+							This makes vector graphics great for simple images that you want
+							to be sharp at any resolution.
+						</p>
 					</aside>
 				</section>
 
 				<section>
-					<h2>Project Euler:</h2>
-					<img class="centerpiece" src="img/projectEulerProblemList.png" />
-					<p>
-						A site with a lot of example math+programming problems of various difficulty.
-					</p>
+					<h2>Step 2: Making Vector Images</h2>
+					<ul>
+						<li>Standard file format: .SVG (Scalable Vector Graphics)</li>
+						<li>Text-file with XML-based formatting.</li>
+					</ul>
 					<aside class="notes">
-						It's a website that has a list of over 600 questions of widely
-						varrying difficulty, which, for the
-						most part, require a mix of programming and math. and the reason...
+						The most common file format for vector images is Scalable Vector
+						Graphics, or .svg for short. It's a human-readable file-format,
+						based on XML.
 					</aside>
-				</section>
-
-				<section>
-					<h2>Why?</h2>
-					<p>
-						These problems are universal.
-					</p>
-					<aside class="notes">
-						And the reason why we're using these as an example is because they
-						are problems which are basically language agnostic, as in, you can
-						solve these problems the same way in basically any programming
-						language, and none of them are gonna need a ton of extra libraries
-						or boiler-plate.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Problem 1:<br />Multiples of 3 and 5</h2>
-					<p>
-						If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-					</p>
-					<p class="highlight">
-						Find the sum of all the multiples of 3 or 5 below 1000.
-					</p>
-					<aside class="notes">
-						This is the first problem listed on the site, and it's one that I
-						like to try in any new language I learn. This is my hello world, my
-						bread and butter.
-
-						Now, I'm sure many of you can already figure this out at a glance,
-						but follow me for a little while, and hopefully I can provide you
-						with some insight in *how* I solve this problem.
-
-						Anyway, what we're going to do is...
-					</aside>
-				</section>
-
-				<section>
-					<h2>Breaking it into parts:</h2>
-					<p>
-						[Find the sum]<br />[of all the]<br />[multiples of 3 or 5]<br />[below 1000].
-					</p>
-					<aside class="notes">
-						What we're going to do is break the problem statement up into parts.
-						There's multiple ways you can choose to do this, and it can actually
-						be a pretty tough task for a more complicated problem, but the
-						approach is still more-or-less the same. Take your big goal, and
-						come up with a set of smaller goals which, together, still solve the
-						problem.
-
-						So now let's pick a part to start with:
-					</aside>
-				</section>
-
-				<section>
-					<h2>Pick a part:</h2>
-					<p>
-						[Find the sum]<br />
-						[of all the]<br />
-						<span class="highlight">[multiples of 3 or 5]</span><br />
-						[below 1000].
-					</p>
-					<aside class="notes">
-						What we're going to do is break the problem statement up into parts.
-						There's multiple ways you can choose to do this, and it can actually
-						be a pretty tough task for a more complicated problem, but the
-						approach is still more-or-less the same. Take your big goal, and
-						come up with a set of smaller goals which, together, still solve the
-						problem.
-					</aside>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"multiples of" &rarr; <span class="fragment">%</span>
-					</p>
-					<p class="fragment">
-						"multiples of 3" &rarr; <span class="fragment">i % 3</span>
-					</p>
-					<div class="fragment inline-code">
-						<p>"multiples of 3 or 5" &rarr;</p>
-						<pre class="fragment">(i % 3 == 0) || (i % 5 == 0)</pre>
-					</div>
-				</section>
-
-				<section class="lang-comp-line">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre>(i % 3 == 0) || (i % 5 == 0)</pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre>(i % 3 == 0) || (i % 5 == 0)</pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre>(i % 3 <span class="highlight">===</span> 0) || (i % 5 <span class="highlight">===</span> 0)</pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre>(i % 3 == 0) <span class="highlight">or</span> (i % 5 == 0)</pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>Aside:<br />Language Fundamentals</h2>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"All of the multiples of 3 or 5" &rarr; <span class="highlight fragment">for loop</span>
-					</p>
-					<pre class="fragment"><code class="JavaScript">for (let i = 0; i < 1000; ++i)</code></pre>
-				</section>
-
-				<section class="lang-comp-line">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">for (int i = 1; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">for (int i = 1; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">for (let i = 0; i < 1000; ++i) {</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">for i in range(1, 1000):</code></pre>
-					</section>
-				</section>
-
-				<section>
-					<h2>Turn it into code:</h2>
-					<p class="fragment">
-						"Find the sum" &rarr; <span class="highlight fragment">use a variable:</span>
-					</p>
-					<pre class="fragment"><code class="Python">sum = 0
-for i in range(1, 1000):
-  if ((i % 3 == 0) or (i % 5 == 0)):
-    sum += i
-print(sum)</code></pre>
 				</section>
 
 				<section class="lang-comp-block">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">int sum = 0;
-for (int i = 1; i < 1000; ++i) {
-  if ((i % 3 == 0) || (i % 5 == 0)) {
-    sum += i;
-  }
-}
-System.out.println(sum);</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">int sum = 0;
-for (int i = 1; i < 1000; ++i) {
-  if ((i % 3 == 0) || (i % 5 == 0)) {
-    sum += i;
-  }
-}
-cout << sum;</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">let sum = 0;
-for (let i = 1; i < 1000; ++i) {
-  if ((i % 3 === 0) || (i % 5 === 0)) {
-    sum += i;
-  }
-}
-console.log(sum);</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">sum = 0
-for i in range(1, 1000):
-  if ((i % 3 == 0) or (i % 5 == 0)):
-    sum += i</code></pre>
-					</section>
+					<h2>SVG Example</h2>
+
+						<img style="width: 250px" src="img/simple-example.svg" alt="An orange circle overlapped by a blue square with a black stroke"/>
+						<pre><code class=" hljs SVG" style="font-size: 0.6em; line-height: 1.5">&lt;svg width="500" height="500" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+	&lt;ellipse cx="50" cy="50" rx="40" ry="40"
+		style="fill:orange;"
+	/&gt;
+	&lt;rect x="50" y="25" height="30" width="40"
+		style="stroke:black; stroke-width: 10; fill: blue;"
+	/&gt;
+&lt;/svg&gt;</code></pre>
+					<aside class="notes">
+						Since it's basically just code, you can write SVG files by hand
+						if you want. That said, it's usually a lot easier to use a graphical
+						editor, such as Inkscape.
+					</aside>
+				</section>
+
+				<section data-background-image="img/inkscape-interface.png" data-background-size="contain">
+					<aside class="notes">
+						This is what Inkscape looks like. If you're following along on your
+						own machine, now is when you should have the software open.
+						If you've ever used a photoediting software like Photoshop or GIMP,
+						this may look familiar. If not, you
+						might be feeling a little intimidated. Why are there so many buttons
+						and menus and modes and options? Fortunately I have good news: I know
+						what maybe 20% of these things do, and I've gotten by just fine.
+					</aside>
 				</section>
 
 				<section>
-					<h2>What we've done:</h2>
-					<ul>
-						<li class="fragment">State the problem clearly.</li>
-						<li class="fragment">Break the problem into discrete steps</li>
-						<li class="fragment">For each step, find its equivalent in code.</li>
+					<h2>Inkscape: Shapes</h2>
+					<img class="centerpiece" src="img/inkscape-interface-shapes.png" style="height: 550px"/>
+					<aside class="notes">
+						These are the 4 simplest, most basic tools in Inkscape. You select
+						these form the left menu, or using one of a number of keyboard
+						shortcuts that you can discover by hovering your mouse over the
+						button.
+						<br />
+						****** Make sure you open Inkscape for real, right about now ******
+						<br />
+						The first tool, the cursor, can almost always be accessed
+						by pressing Escape 1-3 times. It lets you select objects by clicking.
+						Clicking once gives you the stretching handles. Clicking twice gives
+						you the rotation and skew handles. You can also click and drag
+						anywhere inside the dotted box to drag the object around.
+						<br />
+						There's a few important things here with the modifier keys: shift,
+						control, and alt. When held, each of them has some effect on
+						how Inkscape behaves. For example, if you hold CONTROL while dragging
+						an object, it will only move horizontally or vertically, which is
+						useful for maintaining alignment. If you hold control while
+						stretching an object, it will maintain its aspect ratio. If you
+						hold control while rotating or skewing an object, it will snap the
+						angle to 15 degree increments. If you hold Shift, it will stretch
+						the object in both directions. There's a lot more effects I won't
+						go over here, but you can look them up, and the dialogue text at
+						the bottom of the window will also give you hints at times.
+						<br />
+						Oh, and another quick note. You can change the what displays in
+						front of or behind what by using the page up and down keys, or the
+						home and end keys, while you have an object selected.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Going further</h2>
-					<p>Is there a better approach?</p>
+					<h2>Inkscape: Paths</h2>
+					<img class="centerpiece" src="img/inkscape-interface-pen.png" style="height: 550px"/>
+					<aside class="notes">
+						These are my favorite tools, and they're the most complicated thing
+						I'll be talking about today, so pay attention. Paths are curves
+						between 2 or more points (aka nodes). They can overlap and intersect themselves.
+						The curves between nodes can be straight lines or curvy lines called
+						bezier curves. The easiest way to make a path is with the pen tool.
+						You click to start the path, then click for each point you want to
+						add. If you click and drag, you'll make the last segment of the path
+						curved. When you're done, you can either click on your starting point
+						to close the path, or right click anywhere, which leaves the path open.
+						<br />
+						Once you have a path, you can edit it with the path tool. When you
+						click on a path with this tool active, you'll see the nodes shown
+						as squares or diamonds. You can click and drag nodes to move them,
+						or click and drag the segments to change their curvature. If you
+						click on a node next to a curved segment, you'll see circular
+						handles appear, which are another way to adjust the curvature of
+						adjacent segments.
+					</aside>
 				</section>
 
 				<section>
-					<h2>A better approach</h2>
-					<p>Don't search, generate.</p>
+					<h2>Inkscape: Fill and Stroke</h2>
+					<img class="centerpiece" src="img/inkscape-fill-stroke.png"/>
+					<aside class="notes">
+						The fill-and-stroke menu lets you change the color or pattern of the
+						inside or outline of a shape or path. If you don't already have it
+						open, you can open it by pressing control+shift+f, or by going
+						to the object menu at the top. This menu is pretty simple, but
+						it's worth noting that even unclosed paths can have a fill. The fill
+						area just behaves like the two ends are connected. Another useful
+						tool is the stroke-style submenu, which lets you change width of the
+						stroke, and make the stroke dashed, or add arrows to either end.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Generating:</h2>
-					<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}</code></pre>
+					<h2>Inkscape: Boolean Operations</h2>
+					<img class="centerpiece" src="img/inkscape-boolean-ops.png"/>
+					<aside class="notes">
+						The Path menu has a bunch of very useful tools for combining paths
+						in various ways. Union combines two paths. Difference takes the
+						area of the top path and cuts it out of the bottom path. Intersection
+						produces a new path which just contains the area covered by both
+						paths. Exclusion is like difference, but the overlapping area is
+						removed from both paths. The other options are more niche, and I'll
+						leave them for you to research.
+						<br />
+						This menu also has some other nice tools, like the Object to Path
+						button, which lets you turn shapes into paths, so you can edit them
+						node-by-node, or use them in boolean operations. One of my favorites
+						is Dynamic Offset, near the bottom. This removes all the handles on
+						your path and gives you just one, which lets you expand or contract
+						the perimeter of the path. I often use this to make gaps between
+						parts of a logo, which I'll show you later.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Generating: (Fixed)</h2>
-					<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}</code></pre>
-				</section>
-
-				<section class="lang-comp-block">
-					<section class="java">
-						<h2>Code Differences: Java</h2>
-						<pre><code class="Java">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}
-System.out.println(sum2);</code></pre>
-					</section>
-					<section class="cpp">
-						<h2>Code Differences: C++</h2>
-						<pre><code class="C++">int sum2 = 0;
-for (int i = 3; i < 1000; i += 3) {
-  sum2 += i;
-}
-for (int i = 5; i < 1000; i += 5) {
-  sum2 += i;
-}
-for (int i = 15; i < 1000; i += 15) {
-  sum2 -= i;
-}
-cout << sum2;</code></pre>
-					</section>
-					<section class="javascript">
-						<h2>Code Differences: JavaScript</h2>
-						<pre><code class="JavaScript">let sum2 = 0;
-for (let i = 3; i < COUNT_TO; i += 3) {
-  sum2 += i;
-}
-for (let i = 5; i < COUNT_TO; i += 5) {
-  sum2 += i;
-}
-for (let i = 15; i < COUNT_TO; i += 15) {
-  sum2 -= i;
-}
-console.log(sum2);</code></pre>
-					</section>
-					<section class="python">
-						<h2>Code Differences: Python</h2>
-						<pre><code class="Python">sum2 = 0
-for i in range(3, COUNT_TO, 3):
-	sum2 += i
-for i in range(5, COUNT_TO, 5):
-	sum2 += i
-for i in range(15, COUNT_TO, 15):
-	sum2 -= i
-print(sum2)</code></pre>
-					</section>
+					<h2>Inkscape: Export PNG</h2>
+					<img class="centerpiece" src="img/inkscape-export-png.png"/>
+					<aside class="notes">
+						While you can use SVG images in a lot of places, you'll often
+						want to convert them into PNG images for one reason or another.
+						Inkscape makes this relatively easy. To open the export menu, go to
+						the file menu and click "Export PNG Image", or just press
+						control+shift+E. Unfortunately there's no tool to just dragging
+						over the area you want to export, so you'll usually want to either
+						put a rectangle under the image and export selection, or change
+						the size of the document and export Page.
+					</aside>
 				</section>
 
 				<section>
-					<h2>A more complex problem:</h2>
-					<p class="fragment">The <span class="highlight">Pokémon</span> AI</p>
+					<h2>Inkscape: Grid</h2>
+					<img class="centerpiece" src="img/inkscape-grid.png"/>
+					<aside class="notes">
+						The page grid is one of the most useful tools in Inkscape, because
+						it lets you make repeatable diagrams with consistent spacing. To
+						turn it on, go to the view menu at the top, or press shift+3, which
+						gives the hash mark.
+					</aside>
 				</section>
 
 				<section>
-					<h2>The Pokémon AI -<br/>Problem Statement</h2>
-					<p>Make an AI that can competitively battle against humans in Pokémon.</p>
+					<h2>Inkscape: Snapping</h2>
+					<img class="centerpiece" src="img/inkscape-interface-snapping.png" style="height: 550px"/>
+					<aside class="notes">
+						To go with the grid, there is the snapping menu. Snapping causes
+						objects, paths, nodes, and other things to snap to the grid or
+						each other when moved around. This lets you place things precisely,
+						without having to move them pixel-by-pixel. The snapping menu is
+						usually located on the right side of the window, and each button
+						is a toggle. I've labelled them all for you, but the important ones
+						are bolded. In general, if you want something to snap but it isn't
+						snapping, you probably need to play around with this menu. It's okay
+						to not memorize the whole thing, because each button gives a tooltip
+						when you hover over it.
+					</aside>
 				</section>
 
 				<section>
-					<h2>The Pokémon AI -<br/>Breakdown</h2>
-					<p>
-						[Make an AI]<br />
-						[that can competitively battle]<br />
-						[against humans]<br />
-						<span class="fragment highlight">[in Pokémon.]</span>
-					</p>
+					<h2>Inkscape: Document Properties</h2>
+					<img class="centerpiece" src="img/inkscape-doc-properties.png"/>
+					<aside class="notes">
+						You can open the Document Properties dialogue by going to the File
+						menu at the top, or by pressing control+shift+D. This menu has a lot
+						of important and niche options, but the ones I think are essential
+						are the size menu, the background-color option, and the Grid menu.
+						The size menu lets you set the size and units of the page, including
+						pixels, milimeters, and inches. The background color menu is important
+						because the default color of the page is actually transparent, which
+						means your exported PNGs will come out with no background. Sometimes
+						this is what you want, but you often want the background to be white,
+						so this is where you would change that. The Grid menu lets you
+						change the spacing and color of the grid. It also lets you make
+						isometric grids, which are great for 3D technical drawing.
+					</aside>
 				</section>
 
 				<section>
-					<h2>The Pokémon AI</h2>
-					<p>
-						"in Pokémon" &rarr; How do I make a program play Pokémon?
-					</p>
+					<h2>Diagrams: Examples</h2>
+					<aside class="notes">
+						Now we can finally start discussing what I think Inkscape is really
+						uesful for: technical diagrams. Let's start with a few examples to
+						get your head turning.
+					</aside>
+				</section>
+
+				<section data-background-image="img/diagrams/overall-BFD.png" data-background-size="contain">
+					<aside class="notes">
+						Here's a pretty simple diagram. Just a bunch of boxes, text, and
+						arrows. Boxes are all made with simple paths ending in arrows.
+						Notice how everything is even and aligned. This type of diagram
+						is called a "Block Flow Diagram" or BFD, and it was part of a major
+						project I did last semester.
+					</aside>
+				</section>
+
+				<section data-background-image="img/diagrams/methane-to-raw-syngas.png" data-background-size="contain">
+					<aside class="notes">
+						This one's a bit more complex. Now we have some icons with patterns.
+						Everything is still just lines and curves, though, and I'll show you
+						how to make this sort of thing in just a minute.
+					</aside>
+				</section>
+
+				<section data-background-image="img/diagrams/miec-diagram.png" data-background-size="contain">
+					<aside class="notes">
+						This one is actually a replica of a diagram from a scientific paper
+						we cited in our report. The original was really small, so when we
+						scaled it up, it got unreadably blurry. I just made a quick copy to
+						fix that.
+					</aside>
 				</section>
 
 				<section>
-					<h2>The Pokémon AI</h2>
-					<p>
-						Options:
-					</p>
-					<ul>
-						<li>Make a robot to push buttons on an actual game console</li>
-						<li>Make the program give inputs to an emulator</li>
-						<li class="fragment highlight">Use the Pokémon Showdown simulator</li>
-					</ul>
+					<h2>Demo: Example Diagram</h2>
+					<img class="centerpiece" src="img/diagram-example.png"/>
+					<aside class="notes">
+						As a quick demonstration, I'm going to show you how I would go
+						about making a diagram like the one shown here. You're free to
+						follow along, but I'll be moving pretty quickly, so if you fall
+						behind just leave it for later.
+					</aside>
 				</section>
 
 				<section>
-					<h2>Pokémon Showdown!</h2>
-					<img class="centerpiece" src="img/pokemonShowdown.png" />
-					<a href="https://play.pokemonshowdown.com" target="_blank">https://play.pokemonshowdown.com</a>
+					<h2>Logos: Examples</h2>
+					<aside class="notes">
+						And now it's time for logos. I can't really teach you how to
+						come up with good logo designs, but I can show you some examples
+						and explain how I created them.
+					</aside>
+				</section>
+
+				<section data-background-image="img/logo/AuLogo.png" data-background-size="contain">
+					<aside class="notes">
+						This is one of the first logos I made. I'm not too fond of it now,
+						but I included it here to show you what you can make with basically
+						zero experience.
+					</aside>
+				</section>
+
+				<section data-background-image="img/logo/DS_Redo_optimized.png" data-background-size="contain">
+					<aside class="notes">
+						This is my current personal logo. You can see all the lines are a
+						lot thicker than the last lgoo, which helps you distinguish it at
+						small sizes. It's also pure black-on-white. The shapes here are all
+						really simple. Most of it is rectangles and circles combined in
+						different ways.
+					</aside>
+				</section>
+
+				<section data-background-image="img/logo/AU_Redo_optimized.png" data-background-size="contain">
+					<aside class="notes">
+						Here's the same logo rotated 90 degrees counter-clockwise. I
+						intentionally designed this to read as both AU and DS depending on
+						the orientation.
+					</aside>
+				</section>
+
+				<section data-background-image="img/logo/logo_alpha.png" data-background-size="contain">
+					<aside class="notes">
+						This is one I made for a fan project I'm working on called FightCore.
+						The lower prong of the F is supposed to look like a fist, but I
+						don't think it turned out that well.
+					</aside>
+				</section>
+
+				<section data-background-image="img/logo/FC_Apple_Mario.png" data-background-size="contain">
+					<aside class="notes">
+						This is my latest revision of that logo. I redid the fist by tracing
+						over an image of an actual fist, and I moved it to the body of the
+						F so that it could be made larger and more distinguishable. I also
+						added what's supposed to be an apple core to the C, to complete the
+						imagery for "Fight" and "Core".
+					</aside>
 				</section>
 
 				<section>
-					<h2>Pokémon Showdown!</h2>
-					<p>A web-app that simulates Pokémon battles between people</p>
+					<h2>Demo: Example Logo</h2>
+					<img class="centerpiece" src="img/logo/hackfree.png"/>
+					<aside class="notes">
+						This is HackFRee's own logo. I don't know how made this, but I think
+						they used a lot of the same principles as the logos I made. So as a
+						quick demo, I'm going to replicate this diagram in Inkscape, and then
+						I'll be taking questions.
+					</aside>
 				</section>
 
 				<section>
-					<h2>To use a web-app:</h2>
-					<ul>
-						<li>Make the program send mouse and keyboard inputs to mimic a human</li>
-						<li>Use accessibility features</li>
-						<li class="fragment highlight">Do further research</li>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Research:</h2>
-					<img class="centerpiece" src="img/googleSearch.png" />
-					<p>Just Google it</p>
-				</section>
-
-				<section>
-					<h2>Further Research:</h2>
-					<img class="centerpiece" src="img/stackOverflow.png" />
-					<p>People often have had your problem before, and sometimes have solved it.</p>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Return;
-
-						Questions? Comments? Concerns?
-					</textarea>
+					<h2>Thank you for listening!</h2>
+					<img class="centerpiece" src="https://media.inkscape.org/static/images/inkscape-logo.svg" />
+					<p>Questions and Comments</p>
 				</section>
 			</div>
 		</div>
@@ -462,8 +433,6 @@ print(sum2)</code></pre>
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				],
